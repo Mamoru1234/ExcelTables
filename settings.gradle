@@ -18,5 +18,5 @@ include 'services:webservice'
 
 rootProject.name = 'ExcelTables'
 
-include ':generator'
+include ':excel-interaction'
 include ':polygon'

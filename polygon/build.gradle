@@ -7,7 +7,7 @@ repositories {
 }
 
 dependencies {
-    compile project(':generator')
+    compile project(':excel-interaction')
     // https://mvnrepository.com/artifact/org.apache.poi/poi
     compile group: 'org.apache.poi', name: 'poi', version: '3.14'
 }

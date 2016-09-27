@@ -3,7 +3,7 @@ package org.example.polygon;
 import lombok.val;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.example.generator.Generator;
+import org.example.excel_interaction.Generator;
 
 import java.io.IOException;
 
