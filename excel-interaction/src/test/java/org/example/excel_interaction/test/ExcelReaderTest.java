@@ -9,6 +9,10 @@ import org.example.excel_interaction.PersonExcelMarshal;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,6 +45,16 @@ public class ExcelReaderTest {
         persons = ExcelReader
                 .getPersons(sheet, (row) -> row.getRowNum() > 0, PersonExcelMarshal::fromRow);
         Assert.assertEquals(persons, Arrays.asList(person));
+    }
+    @Test
+    public void write() throws IOException {
+        File file = new File("./test.txt");
+        if (!file.exists()) {
+            System.out.println(file.createNewFile());
+        }
+        FileOutputStream stream = new FileOutputStream(file);
+        stream.write("fewfwef".getBytes());
+        stream.close();
     }
     public static void fillSheet(Sheet sheet, List<Person> persons, int startIndex) {
         int i = 0;

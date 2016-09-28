@@ -13,16 +13,8 @@ import java.util.function.Predicate;
  * Created by alexei on 05.08.16.
  */
 public class ExcelReader {
-    private final Predicate<Row> predicate;
-    public ExcelReader(int top, int bottom) {
-        this.predicate = (row) -> {
-            int rowNumber = row.getRowNum();
-            return rowNumber > top && rowNumber < bottom;
-        };
-    }
-    @NotNull
-    public List<Person> getPersons(final Sheet sheet) {
-        return getPersons(sheet, predicate, PersonExcelMarshal::fromRow);
+    public static Predicate<Row> topPredicate(int top) {
+        return (row) -> row.getRowNum() > top;
     }
     @NotNull
     public static List<Person> getPersons(
