@@ -5,7 +5,12 @@ mainClassName='org.example.polygon.Polygon';
 repositories {
     mavenCentral()
 }
-
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.polygon.Polygon'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
 dependencies {
     compile project(':excel-interaction')
     // https://mvnrepository.com/artifact/org.apache.poi/poi
